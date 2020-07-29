@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernate53AspNetCore31DomainEvents", "NHibernate53AspNetCore31DomainEvents\NHibernate53AspNetCore31DomainEvents.csproj", "{EC9DEF1B-0BDD-4538-B683-98B83C111798}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC9DEF1B-0BDD-4538-B683-98B83C111798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC9DEF1B-0BDD-4538-B683-98B83C111798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC9DEF1B-0BDD-4538-B683-98B83C111798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC9DEF1B-0BDD-4538-B683-98B83C111798}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B09AAF62-0A77-4D19-A841-45E226BEB864}
+	EndGlobalSection
+EndGlobal
