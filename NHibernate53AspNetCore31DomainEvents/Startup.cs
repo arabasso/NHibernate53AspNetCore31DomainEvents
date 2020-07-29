@@ -30,7 +30,7 @@ namespace NHibernate53AspNetCore31DomainEvents
         {
             var cfg = new Configuration()
                 .Use(Configuration.GetConnectionString("DefaultConnection"))
-                //.WithSchemaCreate()
+                .WithSchemaCreate()
                 .AddDomainEventListener();
 
             var mapper = new ModelMapper();

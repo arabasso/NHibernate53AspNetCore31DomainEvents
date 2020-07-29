@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using NHibernate;
 using NHibernate.Linq;
+using NHibernate53AspNetCore31DomainEvents.Models;
 
 namespace NHibernate53AspNetCore31DomainEvents
 {
@@ -104,6 +105,12 @@ namespace NHibernate53AspNetCore31DomainEvents
             ThrowIfDisposed();
             var id = ConvertIdFromString(userId);
             var user = await _session.GetAsync<TUser>(id, cancellationToken);
+
+            if (user is ApplicationUser u)
+            {
+                await NHibernateUtil.InitializeAsync(u.User, cancellationToken);
+            }
+
             return user;
         }
 
@@ -117,6 +124,12 @@ namespace NHibernate53AspNetCore31DomainEvents
                 u => u.NormalizedUserName == normalizedUserName,
                 cancellationToken
             );
+
+            if (user is ApplicationUser u)
+            {
+                await NHibernateUtil.InitializeAsync(u.User, cancellationToken);
+            }
+
             return user;
         }
 
