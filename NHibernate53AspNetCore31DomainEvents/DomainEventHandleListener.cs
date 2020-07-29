@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using NHibernate;
+using NHibernate.Engine;
 using NHibernate.Event;
 using NHibernate53AspNetCore31DomainEvents.Domain.Events;
 using NHibernate53AspNetCore31DomainEvents.Domain.Services;
@@ -130,6 +131,11 @@ namespace NHibernate53AspNetCore31DomainEvents
             object entity,
             IEnumerable<PropertyEntry> properties)
         {
+            foreach (CollectionEntry collection in @event.Session.PersistenceContext.CollectionEntries.Values)
+            {
+                collection.IsProcessed = true;
+            }
+
             var domainService = @event.GetServiceProvider().GetRequiredService<DomainEventHandleService>();
 
             foreach (var domainEvent in GetDomainEvents(eventType, entity, properties))

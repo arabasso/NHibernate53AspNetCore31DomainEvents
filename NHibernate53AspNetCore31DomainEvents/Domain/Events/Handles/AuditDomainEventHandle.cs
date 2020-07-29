@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using NHibernate;
 using NHibernate53AspNetCore31DomainEvents.Models;
 
