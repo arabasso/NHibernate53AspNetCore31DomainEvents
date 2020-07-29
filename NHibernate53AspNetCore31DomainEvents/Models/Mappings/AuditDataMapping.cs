@@ -9,7 +9,7 @@ namespace NHibernate53AspNetCore31DomainEvents.Models.Mappings
         public AuditDataMapping()
         {
             Table("auditsdata");
-            Id(m => m.Id, p => p.Generator(Generators.Identity));
+            Id(m => m.Id, p => p.Generator(Generators.Identity, g => g.Params(new { sequence = "AuditDataSeq" })));
             Property(m => m.Field, p =>
             {
                 p.NotNullable(true);
@@ -17,7 +17,11 @@ namespace NHibernate53AspNetCore31DomainEvents.Models.Mappings
             });
             Property(m => m.OriginalValue, p => p.Length(2048));
             Property(m => m.CurrentValue, p => p.Length(2048));
-            ManyToOne(m => m.Audit, p => p.NotNullable(true));
+            ManyToOne(m => m.Audit, p =>
+            {
+                p.NotNullable(true);
+                p.Column("AuditId");
+            });
         }
     }
 }

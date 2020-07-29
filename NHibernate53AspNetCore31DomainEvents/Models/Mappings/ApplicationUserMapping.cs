@@ -57,6 +57,7 @@ namespace NHibernate53AspNetCore31DomainEvents.Models.Mappings
             });
             ManyToOne(m => m.User, p =>
             {
+                p.Column("UserId");
                 p.NotNullable(true);
                 p.Cascade(Cascade.All);
                 p.Lazy(LazyRelation.NoLazy);

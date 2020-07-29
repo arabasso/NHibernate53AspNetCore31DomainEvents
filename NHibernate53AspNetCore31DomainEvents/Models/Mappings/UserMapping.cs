@@ -9,7 +9,7 @@ namespace NHibernate53AspNetCore31DomainEvents.Models.Mappings
         public UserMapping()
         {
             Table("users");
-            Id(m => m.Id, p => p.Generator(Generators.Identity));
+            Id(m => m.Id, p => p.Generator(Generators.Identity, g => g.Params(new { sequence = "UserSeq" })));
             Property(m => m.Name, p =>
             {
                 p.NotNullable(true);

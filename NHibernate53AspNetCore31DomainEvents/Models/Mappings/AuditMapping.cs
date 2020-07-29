@@ -10,7 +10,7 @@ namespace NHibernate53AspNetCore31DomainEvents.Models.Mappings
         public AuditMapping()
         {
             Table("audits");
-            Id(m => m.Id, p => p.Generator(Generators.Identity));
+            Id(m => m.Id, p => p.Generator(Generators.Identity, g => g.Params(new { sequence = "AuditSeq" })));
             Property(m => m.Action);
             Property(m => m.Module, p => p.Length(255));
             Property(m => m.Date, p => p.Type(NHibernateUtil.Date));
@@ -18,7 +18,7 @@ namespace NHibernate53AspNetCore31DomainEvents.Models.Mappings
             Bag(m => m.Data, p =>
             {
                 p.Inverse(true);
-                p.Key(k => k.Column("Audit"));
+                p.Key(k => k.Column("AuditId"));
                 p.Cascade(Cascade.All);
             }, mm => mm.OneToMany());
         }
