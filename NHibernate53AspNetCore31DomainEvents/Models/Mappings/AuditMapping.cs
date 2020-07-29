@@ -12,6 +12,7 @@ namespace NHibernate53AspNetCore31DomainEvents.Models.Mappings
             Table("audits");
             Id(m => m.Id, p => p.Generator(Generators.Identity));
             Property(m => m.Action);
+            Property(m => m.Module, p => p.Length(255));
             Property(m => m.Date, p => p.Type(NHibernateUtil.Date));
             Property(m => m.Time, p => p.Type(NHibernateUtil.TimeAsTimeSpan));
             Bag(m => m.Data, p =>
