@@ -59,6 +59,7 @@ namespace NHibernate53AspNetCore31DomainEvents.Models.Mappings
             {
                 p.NotNullable(true);
                 p.Cascade(Cascade.All);
+                p.Lazy(LazyRelation.NoLazy);
             });
         }
     }
